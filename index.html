@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>ESP TopUp - Download App</title>
+    <title>ESP TopUp - Official App</title>
+
+    <meta name="description"
+          content="Download the official ESP TopUp Android App. Fast, secure and easy to use.">
 
     <style>
         * {
@@ -13,154 +16,1138 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #eef7ff, #ffffff, #dff4ff);
+            font-family:
+                Arial,
+                "Noto Sans Bengali",
+                sans-serif;
+
+            background:
+                radial-gradient(circle at 10% 10%, rgba(0, 174, 255, .16), transparent 30%),
+                radial-gradient(circle at 90% 20%, rgba(0, 102, 255, .12), transparent 30%),
+                linear-gradient(135deg, #f7fbff, #eef8ff, #ffffff);
+
+            color: #172033;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* =========================
+           HEADER
+        ========================== */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+
+            height: 70px;
+
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 20px;
+            justify-content: space-between;
+
+            padding: 0 18px;
+
+            background: rgba(255,255,255,.88);
+            backdrop-filter: blur(15px);
+
+            border-bottom: 1px solid rgba(0,0,0,.08);
         }
 
-        .container {
-            width: 100%;
-            max-width: 430px;
-            text-align: center;
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.95);
-            border: 2px solid #111;
-            border-radius: 25px;
-            padding: 35px 22px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        .brand-logo {
+            width: 42px;
+            height: 42px;
+
+            border-radius: 12px;
+
+            object-fit: cover;
+
+            background: #fff;
+
+            box-shadow:
+                0 5px 15px rgba(0,0,0,.12);
         }
 
-        .logo {
-            width: 110px;
-            height: 110px;
-            object-fit: contain;
-            border-radius: 22px;
-            margin-bottom: 20px;
+        .brand-text {
+            font-size: 19px;
+            font-weight: 900;
+            color: #172033;
         }
 
-        h1 {
-            font-size: 30px;
-            color: #111827;
-            margin-bottom: 10px;
-        }
-
-        h1 span {
+        .brand-text span {
             color: #079bd8;
         }
 
-        .description {
-            color: #666;
-            font-size: 16px;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
+        .top-download {
+            padding: 11px 17px;
 
-        .version {
-            display: inline-block;
-            background: #eef6ff;
-            color: #087db0;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            margin-bottom: 25px;
-        }
+            border-radius: 12px;
 
-        .download-btn {
-            display: block;
-            width: 100%;
-            padding: 17px;
-            background: linear-gradient(135deg, #079bd8, #006eff);
+            background: linear-gradient(
+                135deg,
+                #079bd8,
+                #006eff
+            );
+
             color: white;
-            text-decoration: none;
-            font-size: 19px;
-            font-weight: bold;
-            border-radius: 14px;
-            box-shadow: 0 8px 20px rgba(0, 110, 255, 0.25);
-            transition: 0.2s;
+
+            font-size: 14px;
+            font-weight: 800;
+
+            box-shadow:
+                0 7px 18px rgba(0,110,255,.25);
         }
 
-        .download-btn:active {
-            transform: scale(0.97);
+        /* =========================
+           HERO
+        ========================== */
+
+        .hero {
+            position: relative;
+
+            padding:
+                65px 20px
+                55px;
+
+            text-align: center;
+
+            overflow: hidden;
         }
 
-        .download-icon {
-            margin-right: 8px;
+        .glow {
+            position: absolute;
+
+            width: 230px;
+            height: 230px;
+
+            border-radius: 50%;
+
+            background: rgba(0,157,255,.12);
+
+            filter: blur(30px);
+
+            z-index: -1;
         }
 
-        .info {
-            margin-top: 25px;
-            color: #777;
+        .glow.one {
+            top: 30px;
+            left: -100px;
+        }
+
+        .glow.two {
+            bottom: -80px;
+            right: -100px;
+        }
+
+        .app-icon {
+            width: 125px;
+            height: 125px;
+
+            object-fit: cover;
+
+            border-radius: 28px;
+
+            background: white;
+
+            padding: 5px;
+
+            border: 2px solid rgba(0,0,0,.10);
+
+            box-shadow:
+                0 20px 45px rgba(0,0,0,.16);
+
+            margin-bottom: 25px;
+
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+            0%,100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-9px);
+            }
+        }
+
+        .badge {
+            display: inline-block;
+
+            padding: 8px 14px;
+
+            border-radius: 50px;
+
+            background: #e7f6ff;
+
+            color: #0085c8;
+
             font-size: 13px;
-            line-height: 1.7;
+            font-weight: 800;
+
+            margin-bottom: 15px;
         }
 
-        .footer {
-            margin-top: 18px;
+        .hero h1 {
+            font-size: 38px;
+            line-height: 1.12;
+
+            font-weight: 950;
+
+            margin-bottom: 15px;
+        }
+
+        .hero h1 span {
+            color: #079bd8;
+        }
+
+        .hero p {
+            max-width: 500px;
+
+            margin: auto;
+
+            color: #667085;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+            margin-bottom: 28px;
+        }
+
+        .download-main {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 10px;
+
+            width: min(100%, 360px);
+
+            padding: 17px 22px;
+
+            border-radius: 16px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #079bd8,
+                    #006eff
+                );
+
+            color: white;
+
+            font-size: 18px;
+
+            font-weight: 900;
+
+            box-shadow:
+                0 14px 30px rgba(0,110,255,.27);
+
+            transition: .25s;
+        }
+
+        .download-main:hover {
+            transform: translateY(-3px);
+        }
+
+        .download-main:active {
+            transform: scale(.97);
+        }
+
+        .download-main .icon {
+            font-size: 23px;
+        }
+
+        .small-note {
+            margin-top: 14px;
+
+            color: #8a94a6;
+
             font-size: 12px;
-            color: #999;
+        }
+
+        /* =========================
+           STATS
+        ========================== */
+
+        .stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 10px;
+
+            max-width: 600px;
+
+            margin: 0 auto 50px;
+
+            padding: 0 15px;
+        }
+
+        .stat {
+            background: rgba(255,255,255,.85);
+
+            border: 1px solid rgba(0,0,0,.07);
+
+            border-radius: 16px;
+
+            padding: 18px 8px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+        }
+
+        .stat strong {
+            display: block;
+
+            color: #087db0;
+
+            font-size: 20px;
+
+            margin-bottom: 5px;
+        }
+
+        .stat span {
+            color: #7a8494;
+
+            font-size: 11px;
+        }
+
+        /* =========================
+           SECTION
+        ========================== */
+
+        .section {
+            padding:
+                25px 18px
+                55px;
+
+            max-width: 850px;
+
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 28px;
+        }
+
+        .section-title h2 {
+            font-size: 27px;
+
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #7b8492;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           FEATURES
+        ========================== */
+
+        .features {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 14px;
+        }
+
+        .feature {
+            background: rgba(255,255,255,.9);
+
+            border: 1px solid rgba(0,0,0,.07);
+
+            border-radius: 20px;
+
+            padding: 22px 16px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,.06);
+
+            transition: .25s;
+        }
+
+        .feature:hover {
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: #e9f7ff;
+
+            font-size: 23px;
+
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            font-size: 16px;
+
+            margin-bottom: 8px;
+        }
+
+        .feature p {
+            color: #7b8492;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        /* =========================
+           DOWNLOAD CARD
+        ========================== */
+
+        .download-card {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b9edb,
+                    #006eff
+                );
+
+            color: white;
+
+            border-radius: 26px;
+
+            padding: 35px 22px;
+
+            text-align: center;
+
+            box-shadow:
+                0 20px 45px rgba(0,110,255,.25);
+        }
+
+        .download-card h2 {
+            font-size: 27px;
+
+            margin-bottom: 12px;
+        }
+
+        .download-card p {
+            opacity: .9;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 22px;
+        }
+
+        .download-white {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            width: 100%;
+
+            max-width: 330px;
+
+            background: white;
+
+            color: #006eff;
+
+            padding: 15px;
+
+            border-radius: 14px;
+
+            font-size: 17px;
+
+            font-weight: 900;
+        }
+
+        /* =========================
+           INSTALL STEPS
+        ========================== */
+
+        .steps {
+            display: grid;
+
+            gap: 13px;
+        }
+
+        .step {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            background: white;
+
+            padding: 16px;
+
+            border-radius: 17px;
+
+            border: 1px solid #edf0f4;
+        }
+
+        .step-number {
+            min-width: 40px;
+            height: 40px;
+
+            border-radius: 50%;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: #079bd8;
+
+            color: white;
+
+            font-weight: 900;
+        }
+
+        .step h3 {
+            font-size: 15px;
+
+            margin-bottom: 4px;
+        }
+
+        .step p {
+            color: #7b8492;
+
+            font-size: 12px;
+        }
+
+        /* =========================
+           FAQ
+        ========================== */
+
+        .faq {
+            display: grid;
+
+            gap: 10px;
+        }
+
+        details {
+            background: white;
+
+            border: 1px solid #e9edf2;
+
+            border-radius: 15px;
+
+            padding: 16px;
+        }
+
+        summary {
+            cursor: pointer;
+
+            font-weight: 800;
+
+            font-size: 14px;
+        }
+
+        details p {
+            margin-top: 12px;
+
+            color: #737d8c;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+        /* =========================
+           SUPPORT
+        ========================== */
+
+        .support {
+            text-align: center;
+
+            padding: 20px;
+        }
+
+        .support a {
+            display: inline-block;
+
+            background: #111827;
+
+            color: white;
+
+            padding: 13px 22px;
+
+            border-radius: 13px;
+
+            font-weight: 800;
+
+            font-size: 14px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            text-align: center;
+
+            padding: 30px 15px;
+
+            color: #8a94a6;
+
+            font-size: 12px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================== */
+
+        @media(max-width: 480px) {
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .features {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .stats {
+                gap: 7px;
+            }
+
+            .stat {
+                padding: 15px 5px;
+            }
+        }
+
+        @media(max-width: 350px) {
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-<div class="container">
+<!-- =========================
+     HEADER
+========================== -->
 
-    <div class="card">
+<header>
 
-        <!-- আপনার Logo এখানে দিন -->
+    <div class="brand">
+
+        <!-- আপনার Logo-এর নাম logo.png রাখুন -->
         <img
-            class="logo"
             src="logo.png"
-            alt="ESP TopUp Logo"
+            class="brand-logo"
+            alt="ESP TopUp"
         >
 
-        <h1>
+        <div class="brand-text">
             ESP <span>TopUp</span>
-        </h1>
-
-        <p class="description">
-            আমাদের অফিসিয়াল Android App ডাউনলোড করুন।
-            দ্রুত, সহজ এবং নিরাপদভাবে ব্যবহার করুন।
-        </p>
-
-        <div class="version">
-            Version 1.0.0
-        </div>
-
-        <!-- ==================================================
-             APK DOWNLOAD BUTTON
-             নিচের href-এ আপনার APK-এর আসল Download Link দিন
-        =================================================== -->
-
-        <a
-            class="download-btn"
-            href="YOUR_APK_DOWNLOAD_LINK_HERE"
-            download
-        >
-            <span class="download-icon">⬇️</span>
-            DOWNLOAD APP
-        </a>
-
-        <div class="info">
-            Android ফোনে APK Download হওয়ার পর
-            প্রয়োজন হলে Install permission দিয়ে App Install করুন।
-        </div>
-
-        <div class="footer">
-            © 2026 ESP TopUp. All Rights Reserved.
         </div>
 
     </div>
 
+    <a
+        href="https://github.com/samimkhanyt/Esp-TopUp-/releases/download/v1.0.0/ESP-TopUp.apk"
+        class="top-download"
+    >
+        Download
+    </a>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================== -->
+
+<section class="hero">
+
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+    <img
+        src="logo.png"
+        class="app-icon"
+        alt="ESP TopUp App"
+    >
+
+    <div class="badge">
+        🚀 OFFICIAL ANDROID APP
+    </div>
+
+    <h1>
+        ESP <span>TopUp</span>
+    </h1>
+
+    <p>
+        আপনার Android ফোনে ESP TopUp ব্যবহার করুন
+        আরও দ্রুত, সহজ এবং সুন্দর অভিজ্ঞতার সাথে।
+    </p>
+
+    <a
+        href="https://github.com/samimkhanyt/Esp-TopUp-/releases/download/v1.0.0/ESP-TopUp.apk"
+        class="download-main"
+    >
+        <span class="icon">⬇️</span>
+        DOWNLOAD APP
+    </a>
+
+    <div class="small-note">
+        Android APK • Version 1.0.0 • Free Download
+    </div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================== -->
+
+<div class="stats">
+
+    <div class="stat">
+        <strong>1.0.0</strong>
+        <span>APP VERSION</span>
+    </div>
+
+    <div class="stat">
+        <strong>APK</strong>
+        <span>ANDROID APP</span>
+    </div>
+
+    <div class="stat">
+        <strong>FREE</strong>
+        <span>DOWNLOAD</span>
+    </div>
+
 </div>
+
+
+<!-- =========================
+     FEATURES
+========================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>অ্যাপের সুবিধাসমূহ</h2>
+
+        <p>
+            ESP TopUp-এর গুরুত্বপূর্ণ কিছু সুবিধা
+        </p>
+
+    </div>
+
+
+    <div class="features">
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                ⚡
+            </div>
+
+            <h3>
+                দ্রুত ব্যবহার
+            </h3>
+
+            <p>
+                দ্রুত এবং সহজ interface-এর মাধ্যমে
+                প্রয়োজনীয় কাজ সম্পন্ন করুন।
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🔐
+            </div>
+
+            <h3>
+                Secure System
+            </h3>
+
+            <p>
+                আপনার account এবং প্রয়োজনীয় তথ্য
+                নিরাপদভাবে ব্যবহারের জন্য তৈরি।
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                💰
+            </div>
+
+            <h3>
+                সহজ TopUp
+            </h3>
+
+            <p>
+                সহজে TopUp এবং প্রয়োজনীয়
+                payment-related সুবিধা ব্যবহার করুন।
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                📱
+            </div>
+
+            <h3>
+                Mobile Friendly
+            </h3>
+
+            <p>
+                Android ফোনের জন্য সুন্দর ও
+                responsive experience।
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                📋
+            </div>
+
+            <h3>
+                Order System
+            </h3>
+
+            <p>
+                আপনার order এবং প্রয়োজনীয়
+                তথ্য সহজে দেখতে পারবেন।
+            </p>
+
+        </div>
+
+
+        <div class="feature">
+
+            <div class="feature-icon">
+                🛠️
+            </div>
+
+            <h3>
+                Easy Support
+            </h3>
+
+            <p>
+                সমস্যার সময় support system-এর
+                মাধ্যমে যোগাযোগ করতে পারবেন।
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     DOWNLOAD CARD
+========================== -->
+
+<section class="section">
+
+    <div class="download-card">
+
+        <h2>
+            📲 এখনই App Download করুন
+        </h2>
+
+        <p>
+            ESP TopUp-এর অফিসিয়াল Android APK
+            আপনার ফোনে Download করে ব্যবহার শুরু করুন।
+        </p>
+
+        <a
+            href="https://github.com/samimkhanyt/Esp-TopUp-/releases/download/v1.0.0/ESP-TopUp.apk"
+            class="download-white"
+        >
+            ⬇️ DOWNLOAD APK
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     INSTALL GUIDE
+========================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>
+            📥 কীভাবে Install করবেন?
+        </h2>
+
+        <p>
+            মাত্র কয়েকটি ধাপে App Install করুন
+        </p>
+
+    </div>
+
+
+    <div class="steps">
+
+        <div class="step">
+
+            <div class="step-number">
+                1
+            </div>
+
+            <div>
+                <h3>
+                    Download করুন
+                </h3>
+
+                <p>
+                    Download App button-এ চাপ দিন।
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                2
+            </div>
+
+            <div>
+                <h3>
+                    APK Open করুন
+                </h3>
+
+                <p>
+                    Download শেষ হলে APK ফাইলটি খুলুন।
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                3
+            </div>
+
+            <div>
+                <h3>
+                    Install করুন
+                </h3>
+
+                <p>
+                    Install button চাপ দিয়ে App Install করুন।
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="step">
+
+            <div class="step-number">
+                4
+            </div>
+
+            <div>
+                <h3>
+                    App ব্যবহার শুরু করুন
+                </h3>
+
+                <p>
+                    Install শেষ হলে ESP TopUp Open করুন।
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FAQ
+========================== -->
+
+<section class="section">
+
+    <div class="section-title">
+
+        <h2>
+            ❓ Frequently Asked Questions
+        </h2>
+
+        <p>
+            সাধারণ কিছু প্রশ্নের উত্তর
+        </p>
+
+    </div>
+
+
+    <div class="faq">
+
+        <details>
+
+            <summary>
+                App কি Free?
+            </summary>
+
+            <p>
+                হ্যাঁ, এই Landing Page থেকে APK
+                বিনামূল্যে Download করা যাবে।
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                কোন ফোনে App ব্যবহার করা যাবে?
+            </summary>
+
+            <p>
+                Android APK হওয়ায় compatible Android
+                device-এ ব্যবহার করা যাবে।
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Download করার পর কী করব?
+            </summary>
+
+            <p>
+                Download শেষ হলে APK file খুলে
+                Install করুন।
+            </p>
+
+        </details>
+
+
+        <details>
+
+            <summary>
+                Download Button কাজ না করলে?
+            </summary>
+
+            <p>
+                Internet connection এবং APK release
+                available আছে কিনা পরীক্ষা করুন।
+            </p>
+
+        </details>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SUPPORT
+========================== -->
+
+<section class="support">
+
+    <h2 style="margin-bottom:10px;">
+        🤝 সাহায্য প্রয়োজন?
+    </h2>
+
+    <p style="color:#7b8492; margin-bottom:15px;">
+        যেকোনো সমস্যায় আমাদের সাথে যোগাযোগ করুন।
+    </p>
+
+    <!-- এখানে আপনার Support/WhatsApp/Telegram link বসাতে পারেন -->
+
+    <a href="#">
+        💬 Contact Support
+    </a>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================== -->
+
+<footer>
+
+    <strong>
+        ESP TopUp
+    </strong>
+
+    <br><br>
+
+    Official Android App Download Portal
+
+    <br><br>
+
+    © 2026 ESP TopUp. All Rights Reserved.
+
+</footer>
+
 
 </body>
 </html>
