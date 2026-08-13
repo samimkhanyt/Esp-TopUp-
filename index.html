@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ESP TopUp - Download App</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #eef7ff, #ffffff, #dff4ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 430px;
+            text-align: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.95);
+            border: 2px solid #111;
+            border-radius: 25px;
+            padding: 35px 22px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .logo {
+            width: 110px;
+            height: 110px;
+            object-fit: contain;
+            border-radius: 22px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 30px;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        h1 span {
+            color: #079bd8;
+        }
+
+        .description {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .version {
+            display: inline-block;
+            background: #eef6ff;
+            color: #087db0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .download-btn {
+            display: block;
+            width: 100%;
+            padding: 17px;
+            background: linear-gradient(135deg, #079bd8, #006eff);
+            color: white;
+            text-decoration: none;
+            font-size: 19px;
+            font-weight: bold;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(0, 110, 255, 0.25);
+            transition: 0.2s;
+        }
+
+        .download-btn:active {
+            transform: scale(0.97);
+        }
+
+        .download-icon {
+            margin-right: 8px;
+        }
+
+        .info {
+            margin-top: 25px;
+            color: #777;
+            font-size: 13px;
+            line-height: 1.7;
+        }
+
+        .footer {
+            margin-top: 18px;
+            font-size: 12px;
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <!-- আপনার Logo এখানে দিন -->
+        <img
+            class="logo"
+            src="logo.png"
+            alt="ESP TopUp Logo"
+        >
+
+        <h1>
+            ESP <span>TopUp</span>
+        </h1>
+
+        <p class="description">
+            আমাদের অফিসিয়াল Android App ডাউনলোড করুন।
+            দ্রুত, সহজ এবং নিরাপদভাবে ব্যবহার করুন।
+        </p>
+
+        <div class="version">
+            Version 1.0.0
+        </div>
+
+        <!-- ==================================================
+             APK DOWNLOAD BUTTON
+             নিচের href-এ আপনার APK-এর আসল Download Link দিন
+        =================================================== -->
+
+        <a
+            class="download-btn"
+            href="YOUR_APK_DOWNLOAD_LINK_HERE"
+            download
+        >
+            <span class="download-icon">⬇️</span>
+            DOWNLOAD APP
+        </a>
+
+        <div class="info">
+            Android ফোনে APK Download হওয়ার পর
+            প্রয়োজন হলে Install permission দিয়ে App Install করুন।
+        </div>
+
+        <div class="footer">
+            © 2026 ESP TopUp. All Rights Reserved.
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
